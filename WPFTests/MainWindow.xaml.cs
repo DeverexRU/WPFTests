@@ -32,6 +32,7 @@ namespace WPFTests
         public MainWindow()
         {
             InitializeComponent();
+            //какие-то изменения в коде
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
