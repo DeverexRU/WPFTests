@@ -33,11 +33,42 @@ namespace WPFTests
         {
             InitializeComponent();
             //какие-то изменения в коде
+
+            Style buttonStyle = new Style();
+            buttonStyle.Setters.Add(new Setter { Property = Control.FontFamilyProperty, Value = new FontFamily("Verdana") });
+            buttonStyle.Setters.Add(new Setter { Property = Control.MarginProperty, Value = new Thickness(10) });
+            buttonStyle.Setters.Add(new Setter { Property = Control.BackgroundProperty, Value = new SolidColorBrush(Colors.Black) });
+            buttonStyle.Setters.Add(new Setter { Property = Control.ForegroundProperty, Value = new SolidColorBrush(Colors.White) });
+            buttonStyle.Setters.Add(new EventSetter { Event = Button.ClickEvent, Handler = new RoutedEventHandler(button_Click) });
+            //При создании сеттера нам надо использовать свойство зависимостей, например, Property = Control.FontFamilyProperty.
+            //Причем для свойства Value у сеттера должен быть установлен объект именно того типа, которое хранится в этом свойстве зависимости.
+
+
+            button1.Style = buttonStyle;
+            button2.Style = buttonStyle;
+
+
+            //Также мы можем загружать словарь динамически в коде C#. Так, загрузим в коде C# вышеопределенный словарь:
+            //this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Dictionary1.xaml") };
+            //При динамической загрузке, если мы определяем ресурсы через xaml, то они должны быть динамическими:
+            //xaml: < Button Content = "OK" MaxHeight = "40" MaxWidth = "80" Background = "{DynamicResource buttonBrush}" />
+
+            ////ручное добавление ресурсов из кода
+            // определение объекта-ресурса
+            LinearGradientBrush gradientBrush = new LinearGradientBrush();
+            gradientBrush.GradientStops.Add(new GradientStop(Colors.LightGray, 0));
+            gradientBrush.GradientStops.Add(new GradientStop(Colors.White, 1));
+            // добавление ресурса в словарь ресурсов окна
+            this.Resources.Add("buttonGradientBrush", gradientBrush);
+            // установка ресурса у кнопки
+            button1.Background = (Brush)this.TryFindResource("buttonGradientBrush");
+            // или так
+            //button1.Background = (Brush)this.Resources["buttonGradientBrush"];
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            dataGrid1.ItemsSource = arrSprav1;
+            //dataGrid1.ItemsSource = arrSprav1;
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)

@@ -4,13 +4,127 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTests"
+
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Height="351" Margin="10,50,0,0" VerticalAlignment="Top" Width="365" IsSynchronizedWithCurrentItem="True"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="129,13,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
-        <WindowsFormsHost x:Name="winfirmOpenGL" HorizontalAlignment="Left" Height="351" Margin="399,50,0,0" VerticalAlignment="Top" Width="358"/>
+    <!-- добавлены дополнительные пространства имен xmlns:sys и xmlns:col для использования, например, в структурах данных -->
 
+    <!-- https://metanit.com/sharp/wpf/9.2.php -->
+
+    <Window.Resources>
+        <!-- Можно ИЛИ здесь подключить словарь ресурсов >
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary2.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources -->
+
+        <!-- ИЛИ прописать стили для элементов этого окна -->
+        
+        <!-- Стили для отдельных свойств элементов -->
+        <!-- x:Key определяет имя ресурса (стиля) для последущего указания -->
+        <FontFamily x:Key="buttonFont">Verdana</FontFamily>
+        <SolidColorBrush Color="White" x:Key="buttonFontColor" />
+        <SolidColorBrush Color="Black" x:Key="buttonBackColor" />
+        <Thickness x:Key="buttonMargin" Bottom="10" Left="10" Top="10" Right="10" />
+
+        <!-- заготовка элемента как ресурс -->
+        <!-- так можно заготавливать составные компоненты -->
+        <Button x:Key="resButton" Background="{StaticResource buttonBackColor}">
+            <TextBlock Text="OK" FontSize="16" />
+        </Button>
+
+        <!-- Заготовка элемента управления как ресурса. x:Shared="False" говорит, что каждый объект ресурса создавать отдельно -->
+        <!-- !!!!!!!!!!!!!!!не работает установка элемента интерфейса -->
+        <Button x:Key="buttonRes" x:Shared="False" Content="OK" MaxHeight="40" MaxWidth="80" Background="Azure" />
+
+        <!-- Стиль для группы свойств элемента -->
+        <Style x:Key="BlackAndWhite">
+            <!-- СВОЙСТВА -->
+            <Setter Property="Control.FontFamily" Value="Verdana" />
+            <Setter Property="Control.Background" Value="Black" />
+            <Setter Property="Control.Foreground" Value="White" />
+            <Setter Property="Control.Margin" Value="10" />
+            <!-- ОБРАБОТЧИК СОБЫТИЯ Enent=Класс.Событие -->
+            <EventSetter Event="Button.Click" Handler="button_Click" />
+        </Style>
+
+        <!-- Стиль для группы свойств элемента со сложным свойством -->
+        <Style x:Key="BlackAndWhite2">
+            <Setter Property="Control.Background">
+                <Setter.Value>
+                    <LinearGradientBrush>
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Color="White" Offset="0" />
+                            <GradientStop Color="Black" Offset="1" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Control.FontFamily" Value="Verdana" />
+            <Setter Property="Control.Foreground" Value="White" />
+            <Setter Property="Control.Margin" Value="10" />
+        </Style>
+
+        <!-- Стиль, наследуемый от другого -->
+        <Style x:Key="ButtonChildStyle" BasedOn="{StaticResource BlackAndWhite2}">
+            <Setter Property="Button.BorderBrush" Value="Red" />
+            <Setter Property="Button.FontFamily" Value="Verdana" />
+        </Style>
+
+        <!-- Стиль для группы свойств элемента конкретного типа. Перекрывается отдельно назначемыми стилями -->
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="Background" Value="Blue" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        
+        <!-- Пример ресурса - данных -->
+        <!-- Требует дополнительных xmlns: выше -->
+        <col:ArrayList x:Key="phones"> <!-- namespace:Тип x:Key="название перменной"-->
+            <sys:String>iPhone 6S</sys:String>
+            <sys:String>Nexus 6P</sys:String>
+            <sys:String>Lumia 950</sys:String>
+            <sys:String>Xiaomi MI5</sys:String>
+        </col:ArrayList>
+
+        
+    </Window.Resources>
+
+    <Grid>
+        
+        
+        <StackPanel x:Name="buttonsStack1" Background="Gray" >
+
+            <Button x:Name="button1" Content="Кнопка 1"
+                FontFamily="{StaticResource buttonFont}"
+                Foreground="{StaticResource buttonFontColor}"
+                Background="{StaticResource buttonBackColor}"
+                Margin="{StaticResource buttonMargin}" />
+
+            <!-- При использовании StaticResource пересоздание ресурса с таким именем не повлияет на работу, можно только менять отдельные свойства у ресурса. -->
+            <!-- Если DynamicResource, то можно пересоздать: this.Resources["buttonBrush"] = new SolidColorBrush(Colors.LimeGreen); -->
+            
+            <Button x:Name="button2" Content="Кнопка 2" Style="{StaticResource BlackAndWhite}" />
+            <Button x:Name="button3" Content="Кнопка 3" Style="{StaticResource BlackAndWhite2}"/>
+            <Button x:Name="button4" Content="Кнопка 4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
+            <Button x:Name="button5" Content="Кнопка 5" Style="{StaticResource ButtonChildStyle}"/>
+
+            <Button x:Name="button6" Content="{StaticResource resButton}"/>
+        </StackPanel>
+
+        <!-- вставка элемента из ресурсов -->
+        <StackPanel>
+            <StaticResource ResourceKey="buttonRes" />
+            <StaticResource ResourceKey="buttonRes" />
+            <StaticResource ResourceKey="buttonRes" />
+            <StaticResource ResourceKey="buttonRes" />
+        </StackPanel>
+        
     </Grid>
 </Window>

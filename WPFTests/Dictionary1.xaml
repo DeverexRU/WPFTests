@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WPFTests">
+
+    <!-- Определение ресурса. В данном случае - КИСТИ, Можно стили и т.п.-->
+    <LinearGradientBrush x:Key="buttonBrush22">
+        <GradientStopCollection>
+            <GradientStop Color="White" Offset="0" />
+            <GradientStop Color="Blue" Offset="1" />
+        </GradientStopCollection>
+    </LinearGradientBrush>
+
+    <!-- Ссылка на этот словарь ресурсов вручную прописывается в App.xaml или в -->
+    
+</ResourceDictionary>
