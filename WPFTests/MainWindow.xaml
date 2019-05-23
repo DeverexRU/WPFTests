@@ -9,7 +9,7 @@
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="480" Width="800">
     <!-- добавлены дополнительные пространства имен xmlns:sys и xmlns:col для использования, например, в структурах данных -->
 
     <!-- https://metanit.com/sharp/wpf/9.2.php -->
@@ -80,7 +80,7 @@
         <Style TargetType="Button">
             <Setter Property="FontFamily" Value="Verdana" />
             <Setter Property="Background" Value="Blue" />
-            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Foreground" Value="Green" />
             <Setter Property="Margin" Value="10" />
         </Style>
         
@@ -99,7 +99,7 @@
     <Grid>
         
         
-        <StackPanel x:Name="buttonsStack1" Background="Gray" >
+        <StackPanel x:Name="buttonsStack1" Background="Gray">
 
             <Button x:Name="button1" Content="Кнопка 1"
                 FontFamily="{StaticResource buttonFont}"
@@ -116,10 +116,9 @@
             <Button x:Name="button5" Content="Кнопка 5" Style="{StaticResource ButtonChildStyle}"/>
 
             <Button x:Name="button6" Content="{StaticResource resButton}"/>
-        </StackPanel>
 
+            
         <!-- вставка элемента из ресурсов -->
-        <StackPanel>
             <StaticResource ResourceKey="buttonRes" />
             <StaticResource ResourceKey="buttonRes" />
             <StaticResource ResourceKey="buttonRes" />
