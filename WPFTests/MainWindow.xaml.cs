@@ -76,6 +76,12 @@ namespace WPFTests
             //что-то меняем просто в массиве
             arrSprav1[2].ParamValue = 1.111;
         }
+
+        private void Button1_Click_1(object sender, RoutedEventArgs e)
+        {
+            var f = new FormUniStyle();
+            f.Show();
+        }
     }
 
     public class Sprav1

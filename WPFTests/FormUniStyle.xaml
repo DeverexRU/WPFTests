@@ -1,0 +1,45 @@
+﻿<Window x:Class="WPFTests.FormUniStyle"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFTests"
+        mc:Ignorable="d"
+        Title="FormUniStyle" Height="450" Width="800">
+
+    <Window.Resources>
+        <!-- Подключить словарь ресурсов -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DictionaryUniStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <!-- Внутри WrapPanel все элементы последовательно размещаются в строке, переносясь на новую строку -->
+        <WrapPanel>
+            
+        </WrapPanel>
+
+        <!-- Внутри StackPanel все элементы последовательно размещаются на новых строках -->
+        <StackPanel>
+            <Button x:Name="button01" Content="Кнопочка01" Width="75"/>
+            <Button x:Name="button02" Content="Кнопочка02" Width="75"/>
+
+            
+        </StackPanel>
+
+        
+       
+        <CheckBox x:Name="checkBox" Content="CheckBox" HorizontalAlignment="Left" Margin="64,105,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="64,177,0,0" VerticalAlignment="Top" Width="120"/>
+        <Grid HorizontalAlignment="Left" Height="100" Margin="90,273,0,0" VerticalAlignment="Top" Width="100"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Margin="268,285,0,0" VerticalAlignment="Top" Width="100"/>
+        <RadioButton x:Name="radioButton" Content="RadioButton" HorizontalAlignment="Left" Margin="80,126,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton1" Content="RadioButton" HorizontalAlignment="Left" Margin="80,142,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="524,142,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="530,187,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>

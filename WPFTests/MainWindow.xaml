@@ -13,12 +13,15 @@
     <!-- добавлены дополнительные пространства имен xmlns:sys и xmlns:col для использования, например, в структурах данных -->
 
     <!-- https://metanit.com/sharp/wpf/9.2.php -->
+    
+    <!-- Введение в позиционирование элементов 
+    https://docs.microsoft.com/ru-ru/dotnet/framework/wpf/advanced/alignment-margins-and-padding-overview -->
 
     <Window.Resources>
         <!-- Можно ИЛИ здесь подключить словарь ресурсов >
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Dictionary2.xaml" />
+                <ResourceDictionary Source="DictionaryXXX.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources -->
@@ -96,6 +99,8 @@
         
     </Window.Resources>
 
+    
+    
     <Grid>
         
         
@@ -105,7 +110,7 @@
                 FontFamily="{StaticResource buttonFont}"
                 Foreground="{StaticResource buttonFontColor}"
                 Background="{StaticResource buttonBackColor}"
-                Margin="{StaticResource buttonMargin}" />
+                Margin="{StaticResource buttonMargin}" Click="Button1_Click_1" />
 
             <!-- При использовании StaticResource пересоздание ресурса с таким именем не повлияет на работу, можно только менять отдельные свойства у ресурса. -->
             <!-- Если DynamicResource, то можно пересоздать: this.Resources["buttonBrush"] = new SolidColorBrush(Colors.LimeGreen); -->
