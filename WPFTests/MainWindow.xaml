@@ -18,15 +18,16 @@
     https://docs.microsoft.com/ru-ru/dotnet/framework/wpf/advanced/alignment-margins-and-padding-overview -->
 
     <Window.Resources>
-        <!-- Можно ИЛИ здесь подключить словарь ресурсов >
+        <!-- Здесь подключить словарь ресурсов -->
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="DictionaryXXX.xaml" />
+                <ResourceDictionary Source="Dictionary1.xaml" />
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources -->
-
-        <!-- ИЛИ прописать стили для элементов этого окна -->
+        
+        
+        <!-- Для совместного использования словарей ресурсов и стилей - 
+            стили включать в ветку <Window.Resources>/<ResourceDictionary> на одном 
+            уровне с блоками <ResourceDictionary.MergedDictionaries> </> -->
         
         <!-- Стили для отдельных свойств элементов -->
         <!-- x:Key определяет имя ресурса (стиля) для последущего указания -->
@@ -88,7 +89,9 @@
         </Style>
         
         <!-- Пример ресурса - данных -->
-        <!-- Требует дополнительных xmlns: выше -->
+            <!-- Требует выше xmlns:sys="clr-namespace:System;assembly=mscorlib" -->
+        <sys:String x:Key="strToolTip01">После редактирования полей изменения нужно применить к модели.</sys:String>
+            <!-- Требует выше xmlns:col="clr-namespace:System.Collections;assembly=mscorlib" -->
         <col:ArrayList x:Key="phones"> <!-- namespace:Тип x:Key="название перменной"-->
             <sys:String>iPhone 6S</sys:String>
             <sys:String>Nexus 6P</sys:String>
@@ -96,7 +99,8 @@
             <sys:String>Xiaomi MI5</sys:String>
         </col:ArrayList>
 
-        
+        </ResourceDictionary>
+
     </Window.Resources>
 
     
@@ -110,7 +114,9 @@
                 FontFamily="{StaticResource buttonFont}"
                 Foreground="{StaticResource buttonFontColor}"
                 Background="{StaticResource buttonBackColor}"
-                Margin="{StaticResource buttonMargin}" Click="Button1_Click_1" />
+                Margin="{StaticResource buttonMargin}" 
+                ToolTip="{StaticResource strToolTip01}"
+                Click="Button1_Click_1" />
 
             <!-- При использовании StaticResource пересоздание ресурса с таким именем не повлияет на работу, можно только менять отдельные свойства у ресурса. -->
             <!-- Если DynamicResource, то можно пересоздать: this.Resources["buttonBrush"] = new SolidColorBrush(Colors.LimeGreen); -->
