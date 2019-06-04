@@ -28,7 +28,7 @@
         
         <Setter Property="Foreground" Value="Green" />
         
-        <Thickness x:Key="buttonMargin11" Bottom="10" Left="10" Top="10" Right="10" />
+        <!-- " Thickness x:Key="buttonMargin11" Bottom="10" Left="10" Top="10" Right="10" / -->
         
     </Style>
 
