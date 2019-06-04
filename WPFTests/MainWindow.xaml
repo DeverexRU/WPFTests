@@ -18,15 +18,16 @@
     https://docs.microsoft.com/ru-ru/dotnet/framework/wpf/advanced/alignment-margins-and-padding-overview -->
 
     <Window.Resources>
-        <!-- Можно ИЛИ здесь подключить словарь ресурсов >
+        <!-- Здесь подключить словарь ресурсов -->
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="DictionaryXXX.xaml" />
+                <ResourceDictionary Source="Dictionary1.xaml" />
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources -->
-
-        <!-- ИЛИ прописать стили для элементов этого окна -->
+        
+        
+        <!-- Для совместного использования словарей ресурсов и стилей - 
+            стили включать в ветку <Window.Resources>/<ResourceDictionary> на одном 
+            уровне с блоками <ResourceDictionary.MergedDictionaries> </> -->
         
         <!-- Стили для отдельных свойств элементов -->
         <!-- x:Key определяет имя ресурса (стиля) для последущего указания -->
@@ -96,7 +97,8 @@
             <sys:String>Xiaomi MI5</sys:String>
         </col:ArrayList>
 
-        
+        </ResourceDictionary>
+
     </Window.Resources>
 
     

@@ -5,16 +5,19 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-        <!-- Подключение словарей ресурсов и отдельных ресурсов -->
+        <!-- ГЛОБАЛЬНО: Подключение словарей ресурсов и объявление отдельных ресурсов -->
         <ResourceDictionary>
+            
             <ResourceDictionary.MergedDictionaries>
                 <!-- Перечисление словарей ресурсов -->
                 <ResourceDictionary Source="Dictionary1.xaml" />
                 <!--ResourceDictionary Source="Dictionary2.xaml" /-->
                 <!--ResourceDictionary Source="ButtonStyles.xaml" /-->
             </ResourceDictionary.MergedDictionaries>
+            
             <!-- Описание отдельных ресурсов -->
             <SolidColorBrush Color="LimeGreen" x:Key="limeButton" />
+            
         </ResourceDictionary>
         
     </Application.Resources>
