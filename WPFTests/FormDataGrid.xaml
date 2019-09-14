@@ -7,7 +7,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         
-        xmlns:local="clr-namespace:WPFTests"
+        xmlns:wt="clr-namespace:WPFTests"
         mc:Ignorable="d"
         Title="FormDataGrid" Height="450" Width="800">
 
@@ -145,7 +145,7 @@
                 <DataGridTextColumn Width="0.1*" Header="Обозн." Binding="{Binding VMark, Mode=OneWay}" CellStyle="{StaticResource staticCellNorm}"/>
                 <DataGridTemplateColumn Width="0.1*" Header="Значение">
                     <DataGridTemplateColumn.CellTemplateSelector>
-                        <local:GradeTemplateSelector 
+                        <wt:GradeTemplateSelector 
                             TemplateString = "{StaticResource TemplateString}"
                             TemplateDouble = "{StaticResource TemplateDouble}"
                             TemplateList_UrovOtv = "{StaticResource TemplateList_UrovOtv}"
@@ -154,7 +154,7 @@
                             TemplateList_SaltType = "{StaticResource TemplateList_SaltType}"/>
                     </DataGridTemplateColumn.CellTemplateSelector>
                     <DataGridTemplateColumn.CellEditingTemplateSelector>
-                        <local:GradeTemplateSelector 
+                        <wt:GradeTemplateSelector 
                             TemplateString = "{StaticResource TemplateString}"
                             TemplateDouble = "{StaticResource TemplateDouble}"
                             TemplateList_UrovOtv = "{StaticResource TemplateList_UrovOtv}"
