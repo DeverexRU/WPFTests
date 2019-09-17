@@ -121,7 +121,7 @@
             <!-- При использовании StaticResource пересоздание ресурса с таким именем не повлияет на работу, можно только менять отдельные свойства у ресурса. -->
             <!-- Если DynamicResource, то можно пересоздать: this.Resources["buttonBrush"] = new SolidColorBrush(Colors.LimeGreen); -->
             
-            <Button x:Name="button2" Content="Кнопка 2" Style="{StaticResource BlackAndWhite}" />
+            <Button x:Name="button2" Content="Кнопка 2" Style="{StaticResource BlackAndWhite}" Click="Button2_Click" />
             <Button x:Name="button3" Content="Кнопка 3" Style="{StaticResource BlackAndWhite2}"/>
             <Button x:Name="button4" Content="Кнопка 4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
             <Button x:Name="button5" Content="Кнопка 5" Style="{StaticResource ButtonChildStyle}"/>

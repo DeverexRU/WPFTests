@@ -82,6 +82,13 @@ namespace WPFTests
             var f = new FormUniStyle();
             f.Show();
         }
+
+        private void Button2_Click(object sender, RoutedEventArgs e)
+        {
+            var f = new FormDataGrid();
+            f.Show();
+
+        }
     }
 
     public class Sprav1

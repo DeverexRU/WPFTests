@@ -22,7 +22,7 @@ namespace WPFTests
     /// </summary>
     public partial class FormDataGrid : Window
     {
-        public VM_FormIGECalc vm = new VM_FormIGECalc();
+        public VM_FormIGECalc vm;
         public List<string> list_UrovOtv = new List<string>();
         public List<string> list_gKind = new List<string>();
         public List<string> list_gTorfy = new List<string>();
@@ -33,6 +33,7 @@ namespace WPFTests
         {
             InitializeComponent();
 
+            vm = new VM_FormIGECalc();        
             DataContext = vm;
 
             //добавление ресурсов для выпадающих списков
@@ -43,7 +44,7 @@ namespace WPFTests
             list_UrovOtv.Add("II,III - пониженный");
             this.Resources.Add("list_UrovOtv", list_UrovOtv);
 
-            
+
             this.Resources.Remove("list_gKind");
             for (int i = 0; i <= PropertiesConsts.fParamDis_gKind.GetUpperBound(0); i++)
                 list_gKind.Add(PropertiesConsts.fParamDis_gKind[i].fCaption);
@@ -91,3 +92,4 @@ namespace WPFTests
             };
     }
 
+}
