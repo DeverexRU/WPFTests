@@ -144,6 +144,7 @@
                 <DataGridTextColumn Width="0.6*" Header="Наименование параметра" Binding="{Binding VName, Mode=OneWay}"  CellStyle="{StaticResource staticCellNorm}"/>
                 <DataGridTextColumn Width="0.1*" Header="Обозн." Binding="{Binding VMark, Mode=OneWay}" CellStyle="{StaticResource staticCellNorm}"/>
                 <DataGridTemplateColumn Width="0.1*" Header="Значение">
+
                     <DataGridTemplateColumn.CellTemplateSelector>
                         <wt:GradeTemplateSelector 
                             TemplateString = "{StaticResource TemplateString}"
@@ -151,7 +152,7 @@
                             TemplateList_UrovOtv = "{StaticResource TemplateList_UrovOtv}"
                             TemplateList_gKind = "{StaticResource TemplateList_gKind}"
                             TemplateList_gTorfy = "{StaticResource TemplateList_gTorfy}"
-                            TemplateList_SaltType = "{StaticResource TemplateList_SaltType}"/>
+                            TemplateList_gSaltType = "{StaticResource TemplateList_SaltType}"/>
                     </DataGridTemplateColumn.CellTemplateSelector>
                     <DataGridTemplateColumn.CellEditingTemplateSelector>
                         <wt:GradeTemplateSelector 
@@ -160,7 +161,7 @@
                             TemplateList_UrovOtv = "{StaticResource TemplateList_UrovOtv}"
                             TemplateList_gKind = "{StaticResource TemplateList_gKind}"
                             TemplateList_gTorfy = "{StaticResource TemplateList_gTorfy}"
-                            TemplateList_SaltType = "{StaticResource TemplateList_SaltType}"/>
+                            TemplateList_gSaltType = "{StaticResource TemplateList_SaltType}"/>
                     </DataGridTemplateColumn.CellEditingTemplateSelector>
                 </DataGridTemplateColumn>
 

@@ -92,4 +92,66 @@ namespace WPFTests
             };
     }
 
+    public enum PropType
+    {
+        ptUndefined = 0,
+        ptString = 1,
+        ptDouble = 2,
+        ptList_UrovOtv = 3,
+        ptList_gKind = 4,
+        ptList_gTorfy = 5,
+        ptList_gSaltType = 6,
+        ptList_gSaltStepen = 7,
+        ptList_gTermoStateSP25 = 8,
+        ptWwCurve = 9
+    }
+
+
+    /// <summary>
+    /// Класс для селектора содержимого ячейки таблицы
+    /// </summary>
+    public class GradeTemplateSelector : DataTemplateSelector
+    {
+        public DataTemplate TemplateBlank { get; set; }
+        public DataTemplate TemplateString { get; set; }
+        public DataTemplate TemplateDouble { get; set; }
+        public DataTemplate TemplateList_UrovOtv { get; set; }
+        public DataTemplate TemplateList_gKind { get; set; }
+        public DataTemplate TemplateList_gTorfy { get; set; }
+        public DataTemplate TemplateList_gSaltType { get; set; }
+        public DataTemplate TemplateList_gSaltStepen { get; set; }
+        public DataTemplate TemplateList_gTermoStateSP25 { get; set; }
+        public override DataTemplate SelectTemplate(object item, DependencyObject container)
+        {
+            if (item is VM_IGEParameter v) //сопоставление шаблонов. == ( v!=null )
+            {
+                switch (v.VPropType)
+                {
+                    case (int)PropType.ptString:
+                        return TemplateString;
+                    case (int)PropType.ptDouble:
+                        return TemplateDouble;
+                    case (int)PropType.ptList_UrovOtv:
+                        return TemplateList_UrovOtv;
+                    case (int)PropType.ptList_gKind:
+                        return TemplateList_gKind;
+                    case (int)PropType.ptList_gTorfy:
+                        return TemplateList_gTorfy;
+                    case (int)PropType.ptList_gSaltType:
+                        return TemplateList_gSaltType;
+                    case (int)PropType.ptList_gSaltStepen:
+                        return TemplateList_gSaltStepen;
+                    case (int)PropType.ptList_gTermoStateSP25:
+                        return TemplateList_gTermoStateSP25;
+                    default:
+                        return TemplateBlank;
+                }
+            }
+            else
+            {
+                return base.SelectTemplate(item, container);
+            }
+        }
+    }
+
 }
