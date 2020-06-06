@@ -28,8 +28,10 @@ namespace WPFTests
 
         private void Button01_Click(object sender, RoutedEventArgs e)
         {
-            const string latex = @"\left(x^2 + 2 \cdot x + 2\right) = 0 \frac{2+2}{2} \text{Русские ЛаТеХ}";
-            const string fileName = @"D:\Temp\formula1.png";
+            //const string latex = @"\left(x^2 + 2 \cdot x + 2\right) = 0 \frac{2+2}{2} \text{Русские ЛаТеХ}";
+            const string latex = @"\frac{Wt}{m ^{\circ} C}";
+            // \text{Русские ЛаТеХ}
+            const string fileName = @"D:\ProjectsVS2017\WPFTests\latex_out";
 
             var parser = new TexFormulaParser();
             var formula = parser.Parse(latex);
@@ -42,7 +44,8 @@ namespace WPFTests
         {
             var parser = new TexFormulaParser();
             var formula = parser.Parse(latex);
-            var renderer = formula.GetRenderer(TexStyle.Display, 25.0, "Cambria");
+            var renderer = formula.GetRenderer(TexStyle.Display, 25.0, "Cambria Math"); // Math
+            //var renderer = formula.GetRenderer(TexStyle.Display, 25.0, "Arial"); // Math
             var bitmapSource = renderer.RenderToBitmap(0.0, 0.0);
             //Console.WriteLine($"Image width: {bitmapSource.Width}");
             //Console.WriteLine($"Image height: {bitmapSource.Height}");
@@ -60,7 +63,7 @@ namespace WPFTests
         {
             //const string latex = @"\left(x^2 + 2 \cdot x + 2\right) = 0 \frac{2+2}{2} \text{Русские ЛаТеХ}";
             //const string fileNamePrefix = @"D:\Temp\formula2.png";
-            const string fileNamePrefix = @"D:\ProjectsCS\WPFTests\WPFTests\bin\Debug\latex_out\img";
+            const string fileNamePrefix = @"D:\ProjectsVS2017\WPFTests\latex_out\";
 
             LaTeX_to_File(@"T_{0}", fileNamePrefix + "001.png");
             LaTeX_to_File(@"T_{bf}", fileNamePrefix + "002.png");
@@ -69,7 +72,7 @@ namespace WPFTests
             LaTeX_to_File(@"C_{f}", fileNamePrefix + "005.png");
             LaTeX_to_File(@"C_{th}", fileNamePrefix + "006.png");
 
-            LaTeX_to_File(@"\frac{\text{Вт}}{{\text{m}^2}}", fileNamePrefix + "007.png");
+            LaTeX_to_File(@"\frac{\text{Дж}}{{{\text{м}}^3}}", fileNamePrefix + "007.png");
             LaTeX_to_File(@"\cdot^{\circ}", fileNamePrefix + "008.png");
             LaTeX_to_File(@"\circ", fileNamePrefix + "009.png");
             LaTeX_to_File(@"\text{C}", fileNamePrefix + "010.png");
