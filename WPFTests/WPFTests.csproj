@@ -263,6 +263,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ASPIR\" />
     <Folder Include="Classes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
