@@ -194,6 +194,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Examples\All_JSON_Example.cs" />
+    <Compile Include="Form.xaml.cs">
+      <DependentUpon>Form.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\AppModelCore.cs" />
     <Compile Include="ViewModel\VM_FormIGECalc.cs" />
     <Compile Include="ViewModel\VM_IGEParameter.cs" />
@@ -202,6 +205,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DictionaryUniStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

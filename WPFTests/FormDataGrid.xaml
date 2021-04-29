@@ -17,12 +17,12 @@
                 <ResourceDictionary Source="DictionaryStyle1.xaml" />
             </ -->
 
-            <col:ArrayList x:Key="measures1">
+            <!--<col:ArrayList x:Key="measures1">
                 <sys:String>ed1</sys:String>
                 <sys:String>ed2</sys:String>
                 <sys:String>ed3</sys:String>
                 <sys:String>ed4</sys:String>
-            </col:ArrayList>
+            </col:ArrayList>-->
             <!-- заготовки массивов для выпадающих списков значений параметров -->
             <col:ArrayList x:Key="list_UrovOtv">
             </col:ArrayList>
@@ -46,19 +46,19 @@
             </DataTemplate>
 
             <DataTemplate x:Key="TemplateList_UrovOtv">
-                <ComboBox ItemsSource="{DynamicResource list_UrovOtv}" SelectedIndex="0"/>
+                <ComboBox ItemsSource="{DynamicResource list_UrovOtv}" SelectedIndex="0" Height="18" Style="{StaticResource ComboBoxFlatStyle}"/>
             </DataTemplate>
 
             <DataTemplate x:Key="TemplateList_gKind">
-                <ComboBox ItemsSource="{DynamicResource list_gKind}" SelectedIndex="0"/>
+                <ComboBox ItemsSource="{DynamicResource list_gKind}" SelectedIndex="0" Height="18" Style="{StaticResource ComboBoxFlatStyle}"/>
             </DataTemplate>
 
             <DataTemplate x:Key="TemplateList_gTorfy">
-                <ComboBox ItemsSource="{DynamicResource list_gTorfy}" SelectedIndex="0"/>
+                <ComboBox ItemsSource="{DynamicResource list_gTorfy}" SelectedIndex="0" Height="18" Style="{StaticResource ComboBoxFlatStyle}"/>
             </DataTemplate>
 
             <DataTemplate x:Key="TemplateList_SaltType">
-                <ComboBox ItemsSource="{DynamicResource list_SaltType}" SelectedIndex="0"/>
+                <ComboBox ItemsSource="{DynamicResource list_SaltType}" SelectedIndex="0" Height="18" Style="{StaticResource ComboBoxFlatStyle}"/>
             </DataTemplate>
 
         </ResourceDictionary>
@@ -201,17 +201,34 @@
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
-                                </ContentControl.Style>
+                                </ContentControl.Style>     
                             </ContentControl>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                
+                <!--<DataGridComboBoxColumn Header="ИГЭ"
+                ItemsSource="{x:Static VMGeo:VMUC_CatalogWells.ListIGE}"
+                DisplayMemberPath="Caption"
+                SelectedValuePath="TGUID"
+                SelectedValueBinding="{Binding VIGETGUID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                EditingElementStyle="{StaticResource ComboBoxFlatStyle}"/>-->
 
-                <DataGridComboBoxColumn Width="0.1*" Header="Ед.изм." ItemsSource="{StaticResource measures1}" SelectedItemBinding="{Binding VMeasure}" CellStyle="{StaticResource staticCellNorm}"/>
+                <!--<DataGridComboBoxColumn
+                    Width="0.1*" Header="Ед.изм."
+                    ItemsSource="{Binding Path=Items}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Id"
+                    SelectedItemBinding="{Binding VMeasure}"
+                    CellStyle="{StaticResource staticCellNorm}"/>
+                    --><!--SelectedValue="{Binding Path=SelectedItemId}"-->
+                    <!--DisplayMemberPath="Caption"-->
+
+
                 <DataGridTextColumn Width="0.1*" Header="Рассчет" Binding="{Binding VCalcValue}"/>
             </DataGrid.Columns>
         </DataGrid>
-
+       
 
     </Grid>
 </Window>

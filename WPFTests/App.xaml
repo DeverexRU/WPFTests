@@ -10,7 +10,7 @@
             
             <ResourceDictionary.MergedDictionaries>
                 <!-- Перечисление словарей ресурсов -->
-                <ResourceDictionary Source="Dictionary1.xaml" />
+                <ResourceDictionary Source="DictionaryUniStyle.xaml" />
                 <!--ResourceDictionary Source="Dictionary2.xaml" /-->
                 <!--ResourceDictionary Source="ButtonStyles.xaml" /-->
             </ResourceDictionary.MergedDictionaries>

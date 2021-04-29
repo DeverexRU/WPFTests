@@ -28,12 +28,11 @@ namespace WPFTests
         public List<string> list_gTorfy = new List<string>();
         public List<string> list_SaltType = new List<string>();
 
-
         public FormDataGrid()
         {
             InitializeComponent();
 
-            vm = new VM_FormIGECalc();        
+            vm = new VM_FormIGECalc();
             DataContext = vm;
 
             //добавление ресурсов для выпадающих списков
@@ -50,7 +49,7 @@ namespace WPFTests
                 list_gKind.Add(PropertiesConsts.fParamDis_gKind[i].fCaption);
             this.Resources.Add("list_gKind", list_gKind);
 
-        }
+    }
 
     }
 
@@ -91,6 +90,8 @@ namespace WPFTests
                     fCaption = "Песок" }
             };
     }
+
+
 
     public enum PropType
     {
