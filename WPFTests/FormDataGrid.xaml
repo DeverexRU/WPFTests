@@ -10,7 +10,7 @@
         xmlns:wt="clr-namespace:WPFTests"
         mc:Ignorable="d"
         Title="FormDataGrid" Height="450" Width="800">
-
+ 
     <Window.Resources>
         <ResourceDictionary>
             <!-- ResourceDictionary.MergedDictionaries>
@@ -201,7 +201,7 @@
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
-                                </ContentControl.Style>     
+                                </ContentControl.Style>
                             </ContentControl>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -224,8 +224,13 @@
                     --><!--SelectedValue="{Binding Path=SelectedItemId}"-->
                     <!--DisplayMemberPath="Caption"-->
 
+                <!--<DataGridComboBoxColumn Header="ИГЭ"
+                    ItemsSource="{Binding Path=PropFields}"
+                    DisplayMemberPath="fCaption"
+                    SelectedValuePath="fType"
+                    />-->
 
-                <DataGridTextColumn Width="0.1*" Header="Рассчет" Binding="{Binding VCalcValue}"/>
+                <DataGridTextColumn Width="0.1*" Header="Расчет" Binding="{Binding VCalcValue}"/>
             </DataGrid.Columns>
         </DataGrid>
        

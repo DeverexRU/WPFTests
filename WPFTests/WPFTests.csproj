@@ -197,6 +197,9 @@
     <Compile Include="Form.xaml.cs">
       <DependentUpon>Form.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FormTextBox.xaml.cs">
+      <DependentUpon>FormTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\AppModelCore.cs" />
     <Compile Include="ViewModel\VM_FormIGECalc.cs" />
     <Compile Include="ViewModel\VM_IGEParameter.cs" />
@@ -213,6 +216,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FormDataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

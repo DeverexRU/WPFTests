@@ -96,6 +96,12 @@ namespace WPFTests
             var f = new Form();
             f.Show();
         }
+
+        private void Button4_Click(object sender, RoutedEventArgs e)
+        {
+            var f = new FormTextBox();
+            f.Show();
+        }
     }
 
     public class Sprav1

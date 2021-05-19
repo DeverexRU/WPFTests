@@ -122,6 +122,7 @@ namespace WPFTests
         public DataTemplate TemplateList_gSaltType { get; set; }
         public DataTemplate TemplateList_gSaltStepen { get; set; }
         public DataTemplate TemplateList_gTermoStateSP25 { get; set; }
+
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
             if (item is VM_IGEParameter v) //сопоставление шаблонов. == ( v!=null )
