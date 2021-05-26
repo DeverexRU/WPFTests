@@ -206,29 +206,6 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                
-                <!--<DataGridComboBoxColumn Header="ИГЭ"
-                ItemsSource="{x:Static VMGeo:VMUC_CatalogWells.ListIGE}"
-                DisplayMemberPath="Caption"
-                SelectedValuePath="TGUID"
-                SelectedValueBinding="{Binding VIGETGUID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-                EditingElementStyle="{StaticResource ComboBoxFlatStyle}"/>-->
-
-                <!--<DataGridComboBoxColumn
-                    Width="0.1*" Header="Ед.изм."
-                    ItemsSource="{Binding Path=Items}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Id"
-                    SelectedItemBinding="{Binding VMeasure}"
-                    CellStyle="{StaticResource staticCellNorm}"/>
-                    --><!--SelectedValue="{Binding Path=SelectedItemId}"-->
-                    <!--DisplayMemberPath="Caption"-->
-
-                <!--<DataGridComboBoxColumn Header="ИГЭ"
-                    ItemsSource="{Binding Path=PropFields}"
-                    DisplayMemberPath="fCaption"
-                    SelectedValuePath="fType"
-                    />-->
 
                 <DataGridTextColumn Width="0.1*" Header="Расчет" Binding="{Binding VCalcValue}"/>
             </DataGrid.Columns>

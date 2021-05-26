@@ -203,6 +203,9 @@
     <Compile Include="Model\AppModelCore.cs" />
     <Compile Include="ViewModel\VM_FormIGECalc.cs" />
     <Compile Include="ViewModel\VM_IGEParameter.cs" />
+    <Compile Include="XNumericBoxLite.xaml.cs">
+      <DependentUpon>XNumericBoxLite.xaml</DependentUpon>
+    </Compile>
     <Page Include="Dictionary1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -246,6 +249,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="XNumericBoxLite.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="FormTextBox" Height="450" Width="800">
     <Window.Resources>
-
+ 
         <Style x:Key="PurpleButton">
             <!-- СВОЙСТВА -->
             <Setter Property="Control.FontFamily" Value="Verdana" />
@@ -45,10 +45,12 @@
                             </Viewbox>-->
                         </Border>
                         <ControlTemplate.Triggers>
-                            <!--<Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="border" Property="Background" Value="#E1BEE7"></Setter> --><!--#E0F2F1--><!--
-                                <Setter TargetName="cp" Property="TextBlock.Foreground" Value="#7B1FA2"></Setter>
-                            </Trigger>-->
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="#e2e2e2"></Setter> <!--d6d6d6-->
+                                <Setter TargetName="cp" Property="TextBlock.Foreground" Value="#6b6b6b"></Setter> <!--424242-->
+                                <!--#E0F2F1
+                                <Setter TargetName="cp" Property="TextBlock.Foreground" Value="#7B1FA2"></Setter>-->
+                            </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="border" Property="Background" Value="#ccc"></Setter> <!--#00695C-->
                                 <Setter TargetName="border" Property="BorderBrush" Value="#7a7a7a"></Setter>
@@ -65,6 +67,134 @@
             </Setter>
         </Style>
 
+        <!--<Style x:Key="TextBoxFlatStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="border" CornerRadius="5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
+                            <Grid Margin="10,0">
+                                <TextBlock x:Name="watermark" VerticalAlignment="Center" Visibility="Collapsed" FontSize="{TemplateBinding FontSize}" Opacity="0.4" Text="{TemplateBinding Tag}"></TextBlock>
+                                <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="Center"></ScrollViewer>
+                                <Rectangle x:Name="rect" Fill="Transparent" Height="2" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="0,3"></Rectangle>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="GotFocus">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Width" AutoReverse="True" From="150" To="152" Duration="0:0:0.15" >
+                                            <DoubleAnimation.EasingFunction>
+                                                <CubicEase ></CubicEase>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation Storyboard.TargetProperty="Height" AutoReverse="True" From="30" To="32" Duration="0:0:0.15" >
+                                            <DoubleAnimation.EasingFunction>
+                                                <CubicEase ></CubicEase>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <Trigger Property="IsFocused" Value="true">
+                                <Setter TargetName="rect" Property="Fill" Value="{Binding ElementName=border, Path=BorderBrush}"></Setter>
+                            </Trigger>
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="watermark" Property="Visibility" Value="Visible"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
+
+        <!--<Color x:Key="detailMark">#FFA1A9B3</Color>
+        <SolidColorBrush x:Key="detailMarkBrush" Color="{StaticResource ResourceKey=detailMark}" />
+        <Style x:Key="flatTextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <Rectangle Stroke="{StaticResource ResourceKey=detailMarkBrush}" StrokeThickness="1"/>
+                            <TextBox Margin="1" Text="{TemplateBinding Text}" BorderThickness="0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
+
+
+
+        <Style x:Key="flatTextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                        <Border x:Name="border" CornerRadius="2" Padding="2" Background="Azure" BorderBrush="Blue" BorderThickness="1">
+                            <!--<ContentPresenter x:Name="cp" Height="15"></ContentPresenter>-->
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#7a7a7a"></Setter>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--<Style TargetType="{x:Type TextBox}" x:Key="XNumericBoxLiteStyle" BasedOn="{x:Null}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="txb_border"  
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}"
+                            SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Validation.HasError" Value="True">
+                                <Setter Property="ToolTip"
+                                    Value="{Binding RelativeSource={RelativeSource Self},
+                                        Path=(Validation.Errors)[0].ErrorContent}" />
+                                <Setter Property="Foreground" Value="Red" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" TargetName="txb_border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="txb_border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="txb_border" Value="{StaticResource TextBox.Focus.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>-->
 
     </Window.Resources>
     <Grid>
@@ -75,9 +205,10 @@
             <Button Content="Кнопка 4" Style="{StaticResource ButtonFlatStyle}" Margin="10" Width="90" Padding="5" Height="30" Click="Button_Click"/>
             <Button Content="Кнопка 5" Style="{StaticResource ButtonFlatStyle}" Margin="10" Width="60" Padding="1" Height="15" FontSize="9"/>
             <Button Content="Кнопка 6" Style="{StaticResource ButtonFlatStyle}" Margin="10" Width="90" Height="15"/>
-            <!--<Button Margin="50,10,50,10.8" Height="40" Width="100" IsEnabled="False" Content="Кнопка 7" Style="{StaticResource ButtonFlatStyle3}"/>-->
-            <Button Margin="5,00" Height="20" Width="100" Content="Кнопкаhhhhhhhhhhhhhjjjjjj 8" Style="{StaticResource ButtonFlatStyle3}"/>
-
+            <Button Margin="50,2,50,5.8" Height="20" Width="100" IsEnabled="False" Content="Кнопка 7" Style="{StaticResource ButtonFlatStyle3}"/>
+            <Button Margin="5,00" Height="20" Width="100" Content="Кнопка 8" Style="{StaticResource ButtonFlatStyle3}"/>
+            <TextBox Width="{Binding TextAreaWidth}" Style="{StaticResource ResourceKey=flatTextBox}" />
+            <!--<TextBox Width="150"  Height="30" FontSize="20" Foreground="CadetBlue" BorderBrush="CadetBlue" Background="AliceBlue" Tag="Write here" Style="{StaticResource TextBoxFlatStyle}"></TextBox>-->
         </StackPanel>
         
     </Grid>
