@@ -24,8 +24,12 @@ namespace WPFTests
         public FormTextBox()
         {
             InitializeComponent();
-        }
 
+        }
+        //public ObservableCollection<string> list = new ObservableCollection<string>();
+        //    list.Add("a");
+        //    list.Add("b");
+        //    this.combo.ItemSourse=list;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 

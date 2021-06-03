@@ -315,7 +315,7 @@ namespace LibASPIRCore.Views.XUserControls
             );
         /// <summary>
         /// Корректирует значение Max, если оно меньше Min
-        /// </summary>
+        /// </summary>     
         /// <param name="obj"></param>
         /// <param name="value"></param>
         /// <returns></returns>
@@ -348,7 +348,7 @@ namespace LibASPIRCore.Views.XUserControls
         }
         public static readonly DependencyProperty ItemIndexProperty =
             DependencyProperty.Register
-            (
+            ( 
                 "ItemIndex",
                 typeof(int),
                 typeof(XNumericBoxLite),
@@ -461,7 +461,7 @@ namespace LibASPIRCore.Views.XUserControls
             ((XNumericBoxLite)sender).RaiseEvent(eArg);
         }
 
-        /// <summary>
+        /// <summary>                                
         /// Определение события при изменении значения Value
         /// </summary>
         public static readonly RoutedEvent ValueChangedLightEvent;
@@ -478,8 +478,8 @@ namespace LibASPIRCore.Views.XUserControls
 
         /// <summary>
         /// Вызывает событие ValueChangedEvent
-        /// </summary>
-        /// <param name="_oldValue">Старое значение Value. Новое значение хранится в текущем Value</param>
+        /// </summary> 
+        /// <param name="_oldValue">Старое значение Value. Новое значение хранится в т екущем Value</param>
         protected static void DoValueChanged(object sender, double _oldValue)
         {
             //_OnValueChanged?.Invoke(this, _oldValue);
