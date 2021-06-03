@@ -110,6 +110,7 @@ namespace WPFTests
         public string ParamDiscription { get; set; }
         public string ParamMeasure { get; set; }
         public double ParamValue { get; set; }
+
     }
 
 }
