@@ -9,7 +9,7 @@
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         
         mc:Ignorable="d"
-        Title="MainWindow" Height="480" Width="800">
+        Title="MainWindow" Height="500" Width="800">
     <!-- добавлены дополнительные пространства имен xmlns:sys и xmlns:col для использования, например, в структурах данных -->
 
     <!-- https://metanit.com/sharp/wpf/9.2.php -->
@@ -99,8 +99,28 @@
             <sys:String>Xiaomi MI5</sys:String>
         </col:ArrayList>
 
+            <Style x:Key="flatTextBox2" TargetType="{x:Type TextBox}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                            <Border x:Name="border"  Padding="1" Background="White" BorderBrush="Transparent" BorderThickness="1">
+                                <!--<ContentPresenter x:Name="cp" Height="15"></ContentPresenter>-->
+                                <ScrollViewer VerticalAlignment="Center" Margin="1" x:Name="PART_ContentHost"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="lightgreen"></Setter>
+                                    <!--#26a0da-->
+                                </Trigger>
+
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
 
+        
     </Window.Resources>
 
     
@@ -135,7 +155,7 @@
             <StaticResource ResourceKey="buttonRes" />
             <StaticResource ResourceKey="buttonRes" />
 
-            <TextBox />
+            <TextBox Margin="5" Width="{Binding TextAreaWidth}" Style="{StaticResource ResourceKey=flatTextBox2}" />
             
         </StackPanel>
         

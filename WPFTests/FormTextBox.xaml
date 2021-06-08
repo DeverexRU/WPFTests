@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTests"
         mc:Ignorable="d"
-        Title="FormTextBox" Height="450" Width="800">
+        Title="FormTextBox" Height="550" Width="800">
     <Window.Resources>
  
         <Style x:Key="PurpleButton">
@@ -38,7 +38,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border x:Name="border" Background="#ccc" BorderThickness="1" BorderBrush="#707070"><!--#009688-->
+                        <Border x:Name="border" Background="#ccc" BorderThickness="1" BorderBrush="#7a7a7a"><!--#009688-->
                             <ContentPresenter x:Name="cp" TextBlock.Foreground="black" Content="{TemplateBinding Content}" TextBlock.FontSize="10" Margin="2" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="Center"></ContentPresenter>
                             <!--<Viewbox>
                                 <ContentPresenter x:Name="cp" TextBlock.Foreground="black" TextBlock.FontSize="10" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="4" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
@@ -52,14 +52,15 @@
                                 <Setter TargetName="cp" Property="TextBlock.Foreground" Value="#7B1FA2"></Setter>-->
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#ccc"></Setter> <!--#00695C-->
-                                <Setter TargetName="border" Property="BorderBrush" Value="#303030"></Setter>
+                                <Setter TargetName="border" Property="Background" Value="WhiteSmoke"></Setter> <!--#00695C-->
+                                <Setter TargetName="border" Property="BorderBrush" Value="#26a0da"></Setter>
                                 <Setter TargetName="cp" Property="TextBlock.Foreground" Value="black"></Setter>
 
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#999"></Setter>
+                                <Setter TargetName="border" Property="Background" Value="#ccc"></Setter>
                                 <Setter TargetName="cp" Property="TextBlock.Foreground" Value="black"></Setter>
+                                <Setter TargetName="border" Property="BorderBrush" Value="black"></Setter>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -128,13 +129,13 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBoxBase}">
-                        <Border x:Name="border" CornerRadius="2" Padding="2" Background="Azure" BorderBrush="Blue" BorderThickness="1">
+                        <Border x:Name="border"  Padding="1" Background="WhiteSmoke" BorderBrush="#7a7a7a" BorderThickness="1">
                             <!--<ContentPresenter x:Name="cp" Height="15"></ContentPresenter>-->
-                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                            <ScrollViewer VerticalAlignment="Center" Margin="1" x:Name="PART_ContentHost"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="BorderBrush" Value="#7a7a7a"></Setter>
+                                <Setter TargetName="border" Property="BorderBrush" Value="#26a0da"></Setter>
                             </Trigger>
 
                         </ControlTemplate.Triggers>
@@ -143,7 +144,6 @@
             </Setter>
         </Style>
 
-        
         <!--<Style TargetType="{x:Type TextBox}" x:Key="XNumericBoxLiteStyle" BasedOn="{x:Null}">
             <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
             <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
@@ -212,7 +212,7 @@
         <Style TargetType="ComboBox">
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="Background" Value="#cfcfcf"/>
-            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderBrush" Value="#7a7a7a"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -237,15 +237,15 @@
                         Margin="5, 3, 0, 3"
                         IsHitTestVisible="False"
                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"                              
-                        Content="{TemplateBinding ComboBox.SelectionBoxItem}" 
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"         
+                        Content="{TemplateBinding ComboBox.SelectionBoxItem}"
                         ContentTemplate="{TemplateBinding ComboBox.SelectionBoxItemTemplate}"
                         ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"/>
 
                             <Popup AllowsTransparency="True" PopupAnimation="Slide" IsOpen="{TemplateBinding ComboBox.IsDropDownOpen}">
                                 <Grid MinWidth="{TemplateBinding FrameworkElement.ActualWidth}" MaxHeight="{TemplateBinding ComboBox.MaxDropDownHeight}">
-                                    <Border Background="White" BorderBrush="Black" BorderThickness="1"/>
-                                    <ScrollViewer Margin="0,1,1,1">
+                                    <Border Background="WhiteSmoke" BorderBrush="#26a0da" BorderThickness="1"/>
+                                    <ScrollViewer Margin="1,1,1,1">
                                         <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" />
                                     </ScrollViewer>
                                 </Grid>
