@@ -16,12 +16,12 @@ using System.Windows.Shapes;
 namespace WPFTests
 {
     /// <summary>
-    /// Логика взаимодействия для FormTextBox.xaml
+    /// Логика взаимодействия для Developments.xaml
     /// </summary>
-    
-    public partial class FormTextBox : Window
+
+    public partial class Developments : Window
     {
-        public FormTextBox()
+        public Developments()
         {
             InitializeComponent();
 

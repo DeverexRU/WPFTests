@@ -99,7 +99,7 @@ namespace WPFTests
 
         private void Button4_Click(object sender, RoutedEventArgs e)
         {
-            var f = new FormTextBox();
+            var f = new Developments();
             f.Show();
         }
     }

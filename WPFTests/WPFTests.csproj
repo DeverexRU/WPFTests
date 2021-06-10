@@ -197,8 +197,8 @@
     <Compile Include="Form.xaml.cs">
       <DependentUpon>Form.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FormTextBox.xaml.cs">
-      <DependentUpon>FormTextBox.xaml</DependentUpon>
+    <Compile Include="Developments.xaml.cs">
+      <DependentUpon>Developments.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\AppModelCore.cs" />
     <Compile Include="ViewModel\VM_FormIGECalc.cs" />
@@ -207,6 +207,10 @@
       <DependentUpon>XNumericBoxLite.xaml</DependentUpon>
     </Compile>
     <Page Include="Dictionary1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dictionary2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -222,7 +226,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FormTextBox.xaml">
+    <Page Include="Developments.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
