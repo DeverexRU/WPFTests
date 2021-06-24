@@ -102,6 +102,11 @@ namespace WPFTests
             var f = new Developments();
             f.Show();
         }
+
+        private void button5_Click(object sender, RoutedEventArgs e)
+        {
+            (new FormAbout()).ShowDialog();
+        }
     }
 
     public class Sprav1
