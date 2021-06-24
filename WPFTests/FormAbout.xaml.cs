@@ -23,7 +23,7 @@ namespace WPFTests
         public FormAbout()
         {
             InitializeComponent();
-
+            
             DataContext = new VMF_FormAbout();
         }
 
@@ -37,5 +37,6 @@ namespace WPFTests
             if (e.Key == System.Windows.Input.Key.Escape)
                 this.DialogResult = false;
         }
+
     }
 }
