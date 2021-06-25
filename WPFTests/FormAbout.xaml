@@ -48,20 +48,110 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        <Style x:Key="StringItem"
+               TargetType="ListBoxItem">
+            <Setter Property="IsEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <TextBlock Text="{Binding}"
+                                   FontSize="13"/>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="True">
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style x:Key="SupportContact"
+               TargetType="ListBoxItem">
+            <Setter Property="IsEnabled" Value="False"/>
+            <Setter Property="Margin" Value="10,20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <TextBlock FontSize="13">
+                            <Run Text="{Binding VFIO}"
+                                 FontSize="14"/>
+                            <LineBreak/>
+                            <Run Text="{Binding VAddress}"/>
+                            <LineBreak/>
+                            <Run Text="E-mail: "/>
+                            <Run Text="{Binding VEmail}"/>
+                            <LineBreak/>
+                            <Run Text="Телефон: "/>
+                            <Run Text="{Binding VPhoneNumber}"/>
+                        </TextBlock>
+                        
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="True">
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="LicenseItem"
+               TargetType="ListBoxItem">
+            <Setter Property="IsEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border BorderBrush="LightGray"
+                                BorderThickness="1"
+                                Margin="-1,-0.5">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontSize="13"
+                                           Width="240"
+                                           VerticalAlignment="Center"
+                                           TextAlignment="Center"
+                                           TextWrapping="Wrap">
+                                    <Run Text="Свидетельство о регистрации программы:"
+                                         FontWeight="Medium"/>
+                                    <LineBreak/>
+                                    <Run Text="{Binding VNumber}"/>
+                                    <Run Text=" от "/>
+                                    <Run Text="{Binding VDate}"/>
+                                </TextBlock>
+                                <Rectangle Width="1"
+                                           Height="150"
+                                           Fill="LightGray"/>
+                                <Image Source="Resources/LicenseImage.jpg"
+                                       Width="100"
+                                       Height="110"
+                                       Margin="20"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="True">
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="191"/>    <!-- Шапка -->
+            <RowDefinition Height="180"/>    <!-- Шапка -->
             <RowDefinition/>
             <RowDefinition Height="50"/>    <!-- Подвал -->
         </Grid.RowDefinitions>
 
         <!-- [ Панель с логом, названием проги, версией, производителем, сведениями о проге, свидетельством регистрации ] -->
-        <StackPanel Grid.Row="0" 
+        <DockPanel Grid.Row="0" 
                     Grid.Column="0" 
                     Grid.ColumnSpan="2">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal"
+                        DockPanel.Dock="Top">
                 <Image Source="Resources\RosneftIcon.png"
                        Width="80"
                        Height="80"/>
@@ -82,120 +172,95 @@
                     <TextBlock Text="Все права защищены."/>
                 </StackPanel>
             </StackPanel>
-            <Separator Margin="10,5"/>
+            <Separator Margin="10,5"
+                       DockPanel.Dock="Top"/>
             <!-- [ Сведения о проге ] -->
             <TextBlock FontSize="14"
-                       Margin="10,5">
+                       Margin="10,5"
+                       TextWrapping="Wrap"
+                       DockPanel.Dock="Top">
                 <Run Text="Сведение о программе:" FontWeight="Medium"/>
                 <LineBreak/> <Run Text="  "/>
                 <Run Text="{Binding ProgrameDescription, Mode=OneWay}"/>
             </TextBlock>
 
-            <!-- [ Лицензия ] -->
-            <TextBlock Margin="10,5"
-                       FontSize="14">
-                <Run Text="Свидетельство о регистрации программы:" FontWeight="Medium"/>
-                <LineBreak/> <Run Text="  "/>
-                <Run Text="{Binding NumberLicense, Mode=OneWay}"/>
-                <Run Text=" от "/>
-                <Run Text="{Binding DateLicense, Mode=OneWay}"/>
-            </TextBlock>
-            <Separator Margin="10,5,10,0"/>
-        </StackPanel>
+            <Separator Margin="10,41,10,0"
+                       DockPanel.Dock="Bottom"/>
+        </DockPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1">
             <!-- [ Панель с кнопками-вкладками-темами ] -->
             <StackPanel Grid.Row="1"
-                    Grid.Column="0"
-                    VerticalAlignment="Center">
+                        Grid.Column="0"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center">
                 <Button Content="Авторы"
-                    Tag="Resources\AuthorsIcon.png"
-                    Style="{StaticResource btnTab}"
-                    Command="{Binding cmdSetTabIndex0}"/>
+                        Tag="Resources\AuthorsIcon.png"
+                        Style="{StaticResource btnTab}"
+                        Command="{Binding cmdSetTabIndex0}"/>
                 <Button Content="Лицензионное соглашение"
-                    Tag=""
-                    Style="{StaticResource btnTab}"
-                    Command="{Binding cmdSetTabIndex3}"/>
+                        Tag=""
+                        Style="{StaticResource btnTab}"
+                        Command="{Binding cmdSetTabIndex3}"/>
                 <Button Content="Сведения о лицензии"
-                    Tag="Resources\LicenseIcon.png"
-                    Style="{StaticResource btnTab}"
-                    Command="{Binding cmdSetTabIndex1}"/>
+                        Tag="Resources\LicenseIcon.png"
+                        Style="{StaticResource btnTab}"
+                        Command="{Binding cmdSetTabIndex1}"/>
+                <Button Content="Свидетельства и сертификаты"
+                        Tag=""
+                        Style="{StaticResource btnTab}"
+                        Command="{Binding cmdSetTabIndex4}"/>
                 <Button Content="Техническая поддержка"
-                    Tag="Resources\SupportIcon.png"
-                    Style="{StaticResource btnTab}"
-                    Command="{Binding cmdSetTabIndex2}"/>
+                        Tag="Resources\SupportIcon.png"
+                        Style="{StaticResource btnTab}"
+                        Command="{Binding cmdSetTabIndex2}"/>
             </StackPanel>
             <Rectangle Width="1"
                        Height="400"
                        Fill="Gray"/>
-            <!-- [ Панель с инфой по середине формы. Здесь находятся: Сведения о проге, лицензия, авторы ] -->
+            <!-- [ TabControl для переключения между вкладками ] -->
             <TabControl Margin="5,0"
-                        Height="250" 
                         BorderBrush="White"
+                        Width="420"
                         SelectedIndex="{Binding tiIndex, Mode=OneWay}">
-                    <TabItem Height="0" x:Name="tiAuthors">
-                        <StackPanel>
-                            <!-- [ Авторы ] -->
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Авторы:"
+                <TabItem Height="0" x:Name="tiAuthors">
+                    <StackPanel>
+                        <!-- [ Авторы ] -->
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Авторы:"
                                            Margin="10,0,0,0"
                                            FontSize="14"
                                            FontWeight="Medium"
                                            TextAlignment="Center"
                                            Width="100"/>
-                                <TextBlock FontSize="12"
-                                           TextWrapping="Wrap"
-                                           Foreground="Black"
-                                           HorizontalAlignment="Left"
-                                           Margin="10,0">
-                                    <Run Text="Медяник Сергей Сергеевич"/>
-                                    <LineBreak/>
-                                    <Run Text="Кесиян Грант Арутович"/>
-                                    <LineBreak/>
-                                    <Run Text="Дубров Александр Дмитриевич"/>
-                                    <LineBreak/>
-                                    <Run Text="Поверенный Юрий Сергеевич"/>
-                                    <LineBreak/>
-                                    <Run Text="Гилев Николай Григорьевич"/>
-                                    <LineBreak/>
-                                    <Run Text="Зенков Евгений Валерьевич"/>
-                                    <LineBreak/>                         
-                                    <Run Text="Загуменникова Анна Вячеславовна"/>
-                                    <LineBreak/>
-                                    <Run Text="Федосеенко Валентин Олегович"/>
-                                </TextBlock>
-                            </StackPanel>
-                            <Separator Margin="10,5"/>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Разработка, дизайн и тестирование:"
+                            <ListBox ItemsSource="{Binding VAuthors}" 
+                                     BorderBrush="Transparent" 
+                                     Width="280"
+                                     Height="150"
+                                     ItemContainerStyle="{StaticResource StringItem}"/>
+
+
+                        </StackPanel>
+                        <Separator/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Разработка, дизайн и тестирование:"
                                            Margin="10,5,0,0"
                                            FontSize="14"
                                            FontWeight="Medium"
                                            TextWrapping="Wrap"
                                            TextAlignment="Center"
                                            Width="100"/>
-                                <TextBlock FontSize="12"
-                                           TextWrapping="Wrap"
-                                           Foreground="Black"
-                                           HorizontalAlignment="Left"
-                                           Margin="10,0,0,0">
-                                    <Run Text="Медяник Сергей Сергеевич"/>
-                                    <LineBreak/>
-                                    <Run Text="Кесиян Грант Арутович"/>
-                                    <LineBreak/>
-                                    <Run Text="Лахин Михаил Юрьевич"/>
-                                    <LineBreak/>
-                                    <Run Text="Плигина Эвелина Евгеньевна"/>
-                                    <LineBreak/>
-                                    <Run Text="Кузнецов Кирилл Игоревич"/>
-                                    <LineBreak/>
-                                </TextBlock>
-                            </StackPanel>
+                            <ListBox ItemsSource="{Binding VRazrabs}" 
+                                     BorderBrush="Transparent"
+                                     Width="280"
+                                     Height="100"
+                                     ItemContainerStyle="{StaticResource StringItem}"/>
                         </StackPanel>
-                    </TabItem>
-                    <TabItem Height="0" x:Name="tiLicense">
-                        <StackPanel>
-                            <TextBlock FontSize="14"
+                    </StackPanel>
+                </TabItem>
+                <TabItem Height="0" x:Name="tiLicense">
+                    <StackPanel>
+                        <TextBlock FontSize="14"
                                    Margin="10,5,0,0">
                                 <Run Text="Тип лицензии: "/>
                                 <Run Text="{Binding TypeLicense, Mode=OneWay}"/>
@@ -207,50 +272,28 @@
                                 <Run Text="{Binding CountLicense, Mode=OneWay}"/>
                                 <LineBreak/>
                                 <Run Text="Модули: "/>
-                                </TextBlock>
-                                <TextBlock FontSize="13"
-                                       Margin="20,0">
-                                <Run Text="Свая-САПР Про"/>
-                                <LineBreak/>
-                                <Run Text="РН-Симулар"/>
-                                <LineBreak/>
-                                <Run Text="Типизация"/>
-                            </TextBlock>
-                        </StackPanel>
-                    </TabItem>
-                    <TabItem Height="0" x:Name="tiSupport">
-                        <StackPanel>
-                            <TextBlock FontSize="14"
+                        </TextBlock>
+                        <ListBox ItemsSource="{Binding VModules}"
+                                 BorderBrush="Transparent"
+                                 Margin="20,0"
+                                 ItemContainerStyle="{StaticResource StringItem}"/>
+
+                    </StackPanel>
+                </TabItem>
+                <TabItem Height="0" x:Name="tiSupport">
+                    <StackPanel>
+                        <TextBlock FontSize="15"
                                    FontWeight="Medium"
                                    Text="Контактная информация:"/>
-                            <TextBlock FontSize="14"
-                                   Margin="10,0">
-                            <LineBreak/>
-                            <Run Text="Фамилия Имя Отчество"/>
-                            <LineBreak/>
-                            <Run Text="Адрес нахождения"/>
-                            <LineBreak/>
-                            <Run Text="Адрес почты"/>
-                            <LineBreak/>
-                            <Run Text="Номер телефона"/>
-                            </TextBlock>
-                            <TextBlock FontSize="14"
-                                   Margin="10,0">
-                            <LineBreak/>
-                            <Run Text="Фамилия Имя Отчество"/>
-                            <LineBreak/>
-                            <Run Text="Адрес нахождения"/>
-                            <LineBreak/>
-                            <Run Text="Адрес почты"/>
-                            <LineBreak/>
-                            <Run Text="Номер телефона"/>
-                            </TextBlock>
 
+                        <ListBox ItemsSource="{Binding VSupports}"
+                                 BorderBrush="Transparent"
+                                 Height="240"
+                                 ItemContainerStyle="{StaticResource SupportContact}"/>
 
-
-                        </StackPanel>
-                    </TabItem>
-                    <TabItem Height="0" x:Name="tiLicenseIf">
+                    </StackPanel>
+                </TabItem>
+                <TabItem Height="0" x:Name="tiLicenseIf">
                         <StackPanel>
                             <TextBlock Text="Лицензионное соглашение о программном обеспечении АСПИР"
                                    FontSize="13"
@@ -258,8 +301,8 @@
                             <TextBox IsReadOnly="True" 
                                      TextWrapping="Wrap" 
                                      VerticalScrollBarVisibility="Auto"
-                                     Height="215"
-                                     Width="440">
+                                     Height="235"
+                                     Width="410">
                                 Лицензионный договор 
 1. Термины договора
                         
@@ -357,7 +400,11 @@
                             </TextBox>
                         </StackPanel>
                     </TabItem>
-                </TabControl>
+                <TabItem Height="0" x:Name="tiLicensesAndCertificates">
+                    <ListBox ItemsSource="{Binding VLicenses}"
+                             ItemContainerStyle="{StaticResource LicenseItem}"/>
+                </TabItem>
+            </TabControl>
             
         </StackPanel>
 
