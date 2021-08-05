@@ -208,6 +208,27 @@
     <Compile Include="ViewModel\VMF_FormAbout.cs" />
     <Compile Include="ViewModel\VM_FormIGECalc.cs" />
     <Compile Include="ViewModel\VM_IGEParameter.cs" />
+    <Compile Include="View\UCAuthors.xaml.cs">
+      <DependentUpon>UCAuthors.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UCCertificates.xaml.cs">
+      <DependentUpon>UCCertificates.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UCHeaderAbout.xaml.cs">
+      <DependentUpon>UCHeaderAbout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UCImageButton.xaml.cs">
+      <DependentUpon>UCImageButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UCLicenseDetails.xaml.cs">
+      <DependentUpon>UCLicenseDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UCLicenseText.xaml.cs">
+      <DependentUpon>UCLicenseText.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UCSupportContacts.xaml.cs">
+      <DependentUpon>UCSupportContacts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="XNumericBoxLite.xaml.cs">
       <DependentUpon>XNumericBoxLite.xaml</DependentUpon>
     </Compile>
@@ -262,6 +283,34 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\UCAuthors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UCCertificates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UCHeaderAbout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UCImageButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UCLicenseDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UCLicenseText.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UCSupportContacts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="XNumericBoxLite.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

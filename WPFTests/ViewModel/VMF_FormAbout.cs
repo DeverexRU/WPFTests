@@ -5,7 +5,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
+using WPFTests.View;
 
 namespace WPFTests.ViewModel
 {
@@ -30,20 +32,21 @@ namespace WPFTests.ViewModel
     {
         public string VNumber { set; get; }
         public string VDate { set; get; }
+        public string VImage { set; get; }
 
-        public VLicense(string number, string date)
+        public VLicense(string number, string date, string img)
         {
             VNumber = number;
             VDate = date;
+            VImage = img;
         }
     }
 
     class VMF_FormAbout :INotifyPropertyChanged
     {
         public VMF_FormAbout() 
-        { 
-            tiIndex = 0; 
-            VAuthors = new List<string>()
+        {
+            VFIO_Authors = new List<string>()
             {
                 "Медяник Сергей Сергеевич",
                 "Кесиян Грант Арутович",
@@ -54,7 +57,7 @@ namespace WPFTests.ViewModel
                 "Загуменникова Анна Вячеславовна",
                 "Федосеенко Валентин Олегович"
             };
-            VRazrabs = new List<string>()
+            VFIO_DDT = new List<string>()
             {
                 "Медяник Сергей Сергеевич",
                 "Кесиян Грант Арутович",
@@ -69,7 +72,7 @@ namespace WPFTests.ViewModel
                 "Типизация",
                 "Сервер ЦМЛО"
             };
-            VSupports = new List<VSupportContact>()
+            VSupportContacts = new List<VSupportContact>()
             {
                 new VSupportContact("Иванов Иван Иванович", "г. Краснодар, ул. Красная 54, каб. 1", "II_Ivanov@ntc.rosneft.ru", "+79181234567"),
                 new VSupportContact("Андреев Андрей Андреевич", "г. Краснодар, ул. Красная 54, каб. 2", "AA_Andreev@ntc.rosneft.ru", "+79181234321"),
@@ -77,35 +80,46 @@ namespace WPFTests.ViewModel
             };
             VLicenses = new List<VLicense>()
             {
-                new VLicense("№12345678910","24.06.2021"),
-                new VLicense("№10987654321","25.06.2021")
+                new VLicense("№12345678910","24.06.2021", "/Resources/LicenseImage.jpg"),
+                new VLicense("№10987654321","25.06.2021", "/Resources/LicenseImage.jpg")
             };
         }
 
         #region [ Свойства VM ]
 
+        private UserControl _curUC;
+        public UserControl curUC
+        {
+            set
+            {
+                _curUC = value;
+                OnPropertyChanged();
+            }
+            get => _curUC;
+        }
+
         #region [ Списки ]
 
-        public List<string> VAuthors { set; get; } 
-        public List<string> VRazrabs { set; get; }
+        public List<string> VFIO_Authors { set; get; } 
+        public List<string> VFIO_DDT { set; get; }
         public List<string> VModules { set; get; }
-        public List<VSupportContact> VSupports { set; get; }
+        public List<VSupportContact> VSupportContacts { set; get; }
         public List<VLicense> VLicenses { set; get; }
 
 
         #endregion
 
-        public string FullProgrameName
+        public string VTitle
         {
             get => "РН-Симулар";
         }
 
-        public string ProgrameVersion
+        public string VVersion
         {
             get => "1.0.0.6";
         }
 
-        public string ProgrameDescription
+        public string VDescription
         {
             get => "Программа для расчета свайных фундаментов";
         }
@@ -125,24 +139,14 @@ namespace WPFTests.ViewModel
             get => 111;
         }
         
-        public int tiIndex
+        public string VLicenseText
         {
-            set
-            {
-                _tiIndex = value;
-                OnPropertyChanged();
-            }
-            get => _tiIndex;
+            get => " ...Текст лицензии...";
         }
-        private int _tiIndex;
-        
+
         #endregion
 
-        public ICommand cmdSetTabIndex0 => new RelayCommand(() => tiIndex = 0, _AlwaysTrue);
-        public ICommand cmdSetTabIndex1 => new RelayCommand(() => tiIndex = 1, _AlwaysTrue);
-        public ICommand cmdSetTabIndex2 => new RelayCommand(() => tiIndex = 2, _AlwaysTrue);
-        public ICommand cmdSetTabIndex3 => new RelayCommand(() => tiIndex = 3, _AlwaysTrue);
-        public ICommand cmdSetTabIndex4 => new RelayCommand(() => tiIndex = 4, _AlwaysTrue);
+        
 
 
 
