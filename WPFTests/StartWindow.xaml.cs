@@ -10,22 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFTests.View
+namespace WPFTests
 {
     /// <summary>
-    /// Логика взаимодействия для UCHeaderAbout.xaml
+    /// Логика взаимодействия для StartWindow.xaml
     /// </summary>
-    public partial class UCHeaderAbout : UserControl
+    public partial class StartWindow : Window
     {
-        public UCHeaderAbout()
+        public StartWindow()
         {
             InitializeComponent();
-            ImgLogo.DataContext = this;
+            DataContext = new ViewModel.VMF_StartWindow();
         }
-        
-        public string LogoSource { set; get; }
+
+        private void ButtonClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

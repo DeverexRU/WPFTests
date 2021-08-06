@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:core="clr-namespace:System;assembly=mscorlib"
-        xmlns:uc="clr-namespace:WPFTests.View"
+        xmlns:uc="clr-namespace:WPFTests.View.About"
         mc:Ignorable="d" 
         
         Background="White"
@@ -25,7 +25,8 @@
 
         <!-- [ Панель с логом, названием проги, версией, производителем, сведениями о проге, свидетельством регистрации ] -->
 
-        <uc:UCHeaderAbout LogoSource="..\Resources\RosneftIcon.png"
+        <uc:UCHeaderAbout Image="..\Resources\RosneftIcon.png"
+                          ImageSize="80"
                           Grid.Column="0"
                           Grid.ColumnSpan="2"
                           Grid.Row="0"/>

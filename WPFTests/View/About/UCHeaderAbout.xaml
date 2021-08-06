@@ -1,4 +1,5 @@
-﻿<UserControl x:Class="WPFTests.View.UCHeaderAbout"
+﻿<UserControl Name="HeadAbout"
+             x:Class="WPFTests.View.About.UCHeaderAbout"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -11,10 +12,9 @@
         
         <StackPanel Orientation="Horizontal"
                     DockPanel.Dock="Top">
-            <Image Source="{Binding LogoSource}"
-                   Name="ImgLogo"
-                   Width="80"
-                   Height="80"/>
+            <Image Source="{Binding ElementName=HeadAbout, Path=Image}"
+                   Width="{Binding ElementName=HeadAbout, Path=ImageSize}"
+                   Height="{Binding ElementName=HeadAbout, Path=ImageSize}"/>
             <StackPanel>
                 <TextBlock Text="{Binding VTitle, Mode=OneWay}"
                             FontSize="22" 

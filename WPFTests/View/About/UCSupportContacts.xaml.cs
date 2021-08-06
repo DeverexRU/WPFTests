@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFTests.View
+namespace WPFTests.View.About
 {
     /// <summary>
     /// Логика взаимодействия для UCSupportContacts.xaml

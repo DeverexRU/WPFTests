@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFTests.View
+namespace WPFTests.View.About
 {
     /// <summary>
-    /// Логика взаимодействия для UCAuthors.xaml
+    /// Логика взаимодействия для UCCertificates.xaml
     /// </summary>
-    public partial class UCAuthors : UserControl
+    public partial class UCCertificates : UserControl
     {
-        public UCAuthors()
+        public UCCertificates()
         {
             InitializeComponent();
         }

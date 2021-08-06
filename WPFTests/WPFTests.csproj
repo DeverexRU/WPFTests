@@ -204,30 +204,37 @@
       <DependentUpon>FormAbout.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\AppModelCore.cs" />
+    <Compile Include="StartWindow.xaml.cs">
+      <DependentUpon>StartWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\VMF_FormAbout.cs" />
+    <Compile Include="ViewModel\VMF_StartWindow.cs" />
     <Compile Include="ViewModel\VM_FormIGECalc.cs" />
     <Compile Include="ViewModel\VM_IGEParameter.cs" />
-    <Compile Include="View\UCAuthors.xaml.cs">
+    <Compile Include="View\About\UCAuthors.xaml.cs">
       <DependentUpon>UCAuthors.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UCCertificates.xaml.cs">
+    <Compile Include="View\About\UCCertificates.xaml.cs">
       <DependentUpon>UCCertificates.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UCHeaderAbout.xaml.cs">
+    <Compile Include="View\About\UCHeaderAbout.xaml.cs">
       <DependentUpon>UCHeaderAbout.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UCImageButton.xaml.cs">
+    <Compile Include="View\About\UCImageButton.xaml.cs">
       <DependentUpon>UCImageButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UCLicenseDetails.xaml.cs">
+    <Compile Include="View\About\UCLicenseDetails.xaml.cs">
       <DependentUpon>UCLicenseDetails.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UCLicenseText.xaml.cs">
+    <Compile Include="View\About\UCLicenseText.xaml.cs">
       <DependentUpon>UCLicenseText.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UCSupportContacts.xaml.cs">
+    <Compile Include="View\About\UCSupportContacts.xaml.cs">
       <DependentUpon>UCSupportContacts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Start\UCButtonWithLogoTextDesc.xaml.cs">
+      <DependentUpon>UCButtonWithLogoTextDesc.xaml</DependentUpon>
     </Compile>
     <Compile Include="XNumericBoxLite.xaml.cs">
       <DependentUpon>XNumericBoxLite.xaml</DependentUpon>
@@ -283,31 +290,39 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\UCAuthors.xaml">
+    <Page Include="StartWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UCCertificates.xaml">
+    <Page Include="View\About\UCAuthors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UCHeaderAbout.xaml">
+    <Page Include="View\About\UCCertificates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UCImageButton.xaml">
+    <Page Include="View\About\UCHeaderAbout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UCLicenseDetails.xaml">
+    <Page Include="View\About\UCImageButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UCLicenseText.xaml">
+    <Page Include="View\About\UCLicenseDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UCSupportContacts.xaml">
+    <Page Include="View\About\UCLicenseText.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\About\UCSupportContacts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Start\UCButtonWithLogoTextDesc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -363,6 +378,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\licenseImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\StartWindow\camera.png" />
+    <Resource Include="Resources\StartWindow\emblem100.png" />
+    <Resource Include="Resources\StartWindow\pdf.png" />
+    <Resource Include="Resources\StartWindow\XLS-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\StartWindow\file.png" />
+    <Resource Include="Resources\StartWindow\folder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />

@@ -105,7 +105,7 @@ namespace WPFTests
 
         private void button5_Click(object sender, RoutedEventArgs e)
         {
-            var f = new FormAbout();
+            var f = new StartWindow();
             f.ShowDialog();
         }
     }
