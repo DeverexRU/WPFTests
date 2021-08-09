@@ -6,14 +6,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFTests.View.Start"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UCBtn_Loaded">
     <Grid>
-        <Button Click="Button_Click">
+        <Button Click="Button_Click" Name="myBtn">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Name="br"
+                    <Border Name="br" 
                             Background="{Binding ElementName=UCBtn, Path=Background}" 
-                            BorderBrush="{Binding ElementName=UCBtn, Path=BorderBrush}" BorderThickness="1"
+                            BorderBrush="{Binding ElementName=UCBtn, Path=BorderBrush}" 
+                            BorderThickness="1"
                             Margin="5">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -21,39 +22,71 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Image Grid.Column="0"
-                                   Width ="{Binding ElementName=UCBtn, Path=LogoSize}"
+                            <Image Grid.Column="0" Name="logo"
+                                   Width ="{Binding ElementName=UCBtn, Path=LogoSize}" 
                                    Height="{Binding ElementName=UCBtn, Path=LogoSize}"
                                    Source="{Binding ElementName=UCBtn, Path=LogoSource}"
-                                   Margin="5,0,5,0"/>
-                            <StackPanel Grid.Column="1" Background="Transparent"
+                                   Cursor="{Binding ElementName=UCBtn, Path=SelectOnlyLogoCursor}"
+                                   Margin="5,0,0,0" 
+                                   MouseEnter="Element_MouseEnter" 
+                                   MouseLeave="Element_MouseLeave"
+                                   Tag="0"/>
+                            <StackPanel Grid.Column="1" 
+                                        Background="Transparent"
                                         VerticalAlignment="Center">
                                 <TextBlock Name="txtText" 
-                                           HorizontalAlignment="Stretch"
+                                           HorizontalAlignment="Stretch" 
                                            Background="Transparent"
                                            Text="{Binding ElementName=UCBtn, Path=Text}"
-                                           FontSize="{Binding ElementName=UCBtn, Path=TextSize}"
-                                           Foreground="{Binding ElementName=UCBtn, Path=TextColor}"
+                                           FontSize="{Binding ElementName=UCBtn, Path=TextFontSize}"
+                                           Foreground="{Binding ElementName=UCBtn, Path=TextForeground}"
+                                           TextDecorations="{Binding ElementName=UCBtn, Path=TextDecoration}"
+                                           Cursor="{Binding ElementName=UCBtn, Path=SelectOnlyTextCursor}"
                                            TextWrapping="Wrap" 
-                                           FontWeight="Medium"
-                                           Margin="5,0"/>
+                                           FontWeight="{Binding ElementName=UCBtn, Path=TextFontWeight}"
+                                           Margin="5,0"
+                                           MouseEnter="Element_MouseEnter" 
+                                           MouseLeave="Element_MouseLeave"
+                                           Tag="1"/>
+
                                 <TextBlock Name="txtDesc" 
                                            HorizontalAlignment="Stretch"
                                            Background="Transparent"
                                            Text="{Binding ElementName=UCBtn, Path=Desc}"
-                                           FontSize="{Binding ElementName=UCBtn, Path=DescSize}"
+                                           FontSize="{Binding ElementName=UCBtn, Path=DescFontSize}"
+                                           Foreground="{Binding ElementName=UCBtn, Path=DescForeground}"
+                                           TextDecorations="{Binding ElementName=UCBtn, Path=DescDecoration}"
+                                           Cursor="{Binding ElementName=UCBtn, Path=SelectOnlyDescCursor}"
                                            TextWrapping="Wrap"                                          
-                                           Margin="5,0"/>
+                                           Margin="5,0"
+                                           MouseEnter="Element_MouseEnter" 
+                                           MouseLeave="Element_MouseLeave"
+                                           Tag="2"/>
                             </StackPanel>
                         </Grid>
                     </Border>
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="br" Property="Background" Value="{Binding ElementName=UCBtn, Path=SelectColor}"/>
+                            <Setter TargetName="br" Property="Background" Value="{Binding ElementName=UCBtn, Path=SelectBackground}"/>
                             <Setter TargetName="br" Property="Cursor" Value="{Binding ElementName=UCBtn, Path=SelectCursor}"/>
-                            <Setter TargetName="txtText" Property="Foreground" Value="{Binding ElementName=UCBtn, Path=SelectTextColor}"/>
-                            <Setter TargetName="txtDesc" Property="Foreground" Value="{Binding ElementName=UCBtn, Path=SelectDescColor}"/>
+                            <Setter TargetName="txtText" Property="Foreground" Value="{Binding ElementName=UCBtn, Path=SelectTextForeground}"/>
+                            <Setter TargetName="txtDesc" Property="Foreground" Value="{Binding ElementName=UCBtn, Path=SelectDescForeground}"/>
+                            <Setter TargetName="txtText" Property="TextDecorations" Value="{Binding ElementName=UCBtn, Path=SelectTextDecoration}"/>
+                            <Setter TargetName="txtDesc" Property="TextDecorations" Value="{Binding ElementName=UCBtn, Path=SelectDescDecoration}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseDirectlyOver" Value="True">
+                            <Setter TargetName="br" Property="Background" Value="{Binding ElementName=UCBtn, Path=ClickBackground}"/>
+                            <Setter TargetName="txtText" Property="Foreground" Value="{Binding ElementName=UCBtn, Path=ClickTextForeground}"/>
+                            <Setter TargetName="txtDesc" Property="Foreground" Value="{Binding ElementName=UCBtn, Path=ClickDescForeground}"/>
+                        </Trigger>
+                        <Trigger SourceName="txtText" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="txtText" Property="Foreground" Value="{Binding ElementName=UCBtn, Path=SelectOnlyTextForeground}"/>
+                            <Setter TargetName="txtText" Property="TextDecorations" Value="{Binding ElementName=UCBtn, Path=SelectOnlyTextDecoration}"/>
+                        </Trigger>
+                        <Trigger SourceName="txtDesc" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="txtDesc" Property="Foreground" Value="{Binding ElementName=UCBtn, Path=SelectOnlyDescForeground}"/>
+                            <Setter TargetName="txtDesc" Property="TextDecorations" Value="{Binding ElementName=UCBtn, Path=SelectOnlyDescDecoration}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

@@ -98,25 +98,22 @@
 
         <GroupBox Header="Проекты" Grid.Row="0" Grid.Column="2">
             <StackPanel>
+
                 <uc:UCButtonWithLogoTextDesc Height="65"
                                              Command="{Binding CmdNewProject}"
-                                             SelectColor="SkyBlue"
                                              Text="Создать проект"
-                                             TextSize="14"
+                                             TextFontSize="14"
                                              Desc="Создание пустого проекта, для начала работы. Комбинация: Ctrl+N"
-                                             DescSize="11"
-                                             DescColor="Gray"
+                                             DescFontSize="11"
                                              LogoSource="../Resources/StartWindow/file.png"
                                              LogoSize="45"/>
 
                 <uc:UCButtonWithLogoTextDesc Height="65"
                                              Command="{Binding CmdOpenProjectDialog}"
-                                             SelectColor="SkyBlue"
                                              Text="Открыть проект..."
-                                             TextSize="14"
+                                             TextFontSize="14"
                                              Desc="Открыть существующий проект в формате .simz/.simo. Комбинация: Ctrl+O"
-                                             DescSize="11"
-                                             DescColor="Gray"
+                                             DescFontSize="11"
                                              LogoSource="../Resources/StartWindow/folder.png"
                                              LogoSize="45"/>
 
@@ -204,6 +201,30 @@
             <ScrollViewer HorizontalScrollBarVisibility="Auto"
                           VerticalScrollBarVisibility="Auto">
                 <StackPanel>
+                    <uc:UCButtonWithLogoTextDesc    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1"
+                                                    Command="{Binding CmdOpenSprav}"
+                                                     
+                                                    LogoSource="../Resources/StartWindow/pdf.png"
+                                                    LogoSize="30"
+                                                    SelectOnlyLogoCursor="Hand"
+                                                    SelectOnlyTextCursor="Hand"
+                                                    ClickablePlace="LogoText"
+                                                     
+                                                    Text="Инструкция по проектированию"
+                                                    TextFontSize="12"
+                                                    TextForeground="Blue"
+                                                    TextDecoration="Underline"
+                                                    SelectOnlyTextForeground="Red"
+                                                     
+                                                    Desc="Инструкция по особенностям проектирования свайных фундаментов"
+                                                    DescForeground="Gray"
+                                                    DescFontSize="11"
+                                                     
+                                                    Background="Transparent"
+                                                    BorderBrush="Transparent"
+                                                    SelectBackground="Transparent"
+                                                    ClickBackground="Transparent"/>
+                    
                     <Grid VerticalAlignment="Center">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
@@ -216,7 +237,9 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
-                        <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                        
+
+                        <!--<Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
                             Source="../Resources/StartWindow/pdf.png"                              
                             Width="30"/>
                         <TextBlock Grid.Row="0" Grid.Column="1"
@@ -227,7 +250,7 @@
                         </TextBlock>
                         <TextBlock Grid.Row="1" Grid.Column="1"
                             Text="Инструкция по особенностям проектирования свайных фундаментов"
-                            Foreground="Gray"/>
+                            Foreground="Gray"/>-->
 
                         <Image Grid.Row="2" Grid.Column="0" Grid.RowSpan="2"
                             Source="../Resources/StartWindow/pdf.png"                              
